@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+
     "plugins": [
       {
         "name": "next"
@@ -20,6 +21,9 @@
     ],
     "paths": {
       "@/*": ["./*"]
+    },
+    "paths": {
+      "pdfjs-dist": ["node_modules/pdfjs-dist/legacy/build/pdf"]
     }
   },
   "include": [
