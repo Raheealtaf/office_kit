@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 1. Ignore Type & Lint errors during build (Saves memory & prevents strict failures)
+  // 1. Disable Source Maps (Saves huge amount of memory)
+  productionBrowserSourceMaps: false,
+
+  // 2. Ignore Errors so build finishes even with warnings
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -8,25 +11,26 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  // 2. Prevent the "canvas" crash
+  // 3. Prevent native module crashes
   webpack: (config) => {
     config.resolve.alias.canvas = false;
     config.resolve.alias.encoding = false;
     return config;
   },
 
-  // 3. Allow images from Unsplash (for your blog)
+  // 4. Allow Unsplash images
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+      },
     ],
   },
-
-  // 4. Server Components config (Required for some versions of Next.js)
-  serverExternalPackages: ["sharp"],
 };
 
 module.exports = nextConfig;

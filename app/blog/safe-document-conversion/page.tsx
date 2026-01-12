@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, Lock, Zap, ArrowLeft } from "lucide-react";
